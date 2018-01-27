@@ -1,0 +1,20 @@
+{
+  "name": "bytepushers-js-string-extensions",
+  "version": "0.0.2",
+  "description": "A concise collection of String utility methods.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byte-pushers/bytepushers-js-string-extensions.git"
+  },
+  "license": "MIT",
+  "author": "Tonté Pouncil <tonte.pouncil@bytepushers.software>",
+  "contributors": [
+    "Tonté Pouncil <pouncilt.developer@gmail.com> "
+  ],
+  "directories": {
+    "lib": "release"
+  },
+  "main": [
+    "release/bytepushers-js-string-extensions.js"
+  ]
+}
