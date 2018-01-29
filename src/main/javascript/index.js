@@ -8,4 +8,4 @@ require('./software.bytepushers.utils.DOMUtility');
 require('./software.bytepushers.utils.NumberUtility');
 require('./software.bytepushers.utils.ResourceLoader');*/
 require('./software.bytepushers.string.extensions.js');
-module.exports = BytePushers;
+//module.exports = BytePushers;
