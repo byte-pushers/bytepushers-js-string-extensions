@@ -7,5 +7,5 @@ require('./software.bytepushers.utils.DateUtility');
 require('./software.bytepushers.utils.DOMUtility');
 require('./software.bytepushers.utils.NumberUtility');
 require('./software.bytepushers.utils.ResourceLoader');*/
-require('./software.bytepushers.string.extensions.js');
+require('./bytepushers-js-string-extensions.js');
 //module.exports = BytePushers;
