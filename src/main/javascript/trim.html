@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trimming</title>
+<script> debugger;
+    //todo declare string variable:
+
+    var carName = null;
+
+    //todo assign a string value to variable:
+
+    carName = "national";
+
+    //todo see if gnxTrim() method is available on string variable:
+
+    console.log("carName.gnxTrim:" + carName.gnxTrim);
+    //alert("carName.gnxTrim:" + carName.gnxTrim);
+
+
+    //todo insert polyfill:
+
+    if (!String.prototype.gnxTrim) {
+        String.prototype.gnxTrim = function () {
+            return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+        };
+    }
+    console.log("carName.gnxTrim:" + carName.gnxTrim);
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
