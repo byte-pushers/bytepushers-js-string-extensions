@@ -4,10 +4,32 @@ define(['bytepushers'], function(BytePushers) {
         var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
-            it('will trim whitespace correctly', function() {
-                var result = "                       l     shdasdk;lg;al j          ".trim();
 
-                expect(result).toBe("l     shdasdk;lg;al j");
+
+
+
+            it('will trim whitespace correctly', function () {
+
+                var testString = " Donkey Kong ";
+
+                var expectedResult = "Donkey Kong";
+
+                var actualResult = testString.trim();
+
+                expect(actualResult).toBe(expectedResult);
+
+            });
+
+            it('will trim whitespace correctly', function () {
+
+                var testString = " Duck Hunt";
+
+                var expectedResult = "Duck Hunt";
+
+                var actualResult = testString.trim();
+
+                expect(actualResult).toBe(expectedResult);
+
             });
             it("Will Not Trim in Front of a String", function() {
                 var stringUnderTest = "ABC";
@@ -89,6 +111,62 @@ define(['bytepushers'], function(BytePushers) {
 
                 expect(result).toBe("helloThisIsASentence.");
             });
+
+            it('will minimize first and second letters of first word and keep capital on second word and condense', function () {
+
+                var testString = "CAptain Falcon";
+
+                var expectedResult = "captainFalcon";
+
+                var actualResult = testString.toCamelCase();
+
+                expect(actualResult).toBe(expectedResult);
+
+            });
+
+            it('will minimize capital letter of first word and condense', function () {
+                var testString = "Rosalina & luma";
+
+                var expectedResult = "rosalina&Luma";
+
+                var actualResult = testString.toCamelCase();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
+            it('will keep first letter of word minimized, capitalize first letter of second word and condense', function () {
+
+                var testString = "pokemon trainer";
+
+                var expectedResult = "pokemonTrainer";
+
+                var actualResult = testString.toCamelCase();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
+        it('will minimize first letter of word', function () {
+
+            var testString = "Wario";
+
+            var expectedResult = "wario";
+
+            var actualResult = testString.toCamelCase();
+
+            expect(actualResult).toBe(expectedResult);
+        });
+
+            it('will stay the same', function () {
+
+                var testString = "darkPit";
+
+                var expectedResult = "darkPit";
+
+                var actualResult = testString.toCamelCase();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
         });
 
         describe('String.prototype.toNormalCase', function () {
