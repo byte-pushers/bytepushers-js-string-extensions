@@ -56,6 +56,14 @@ define(['bytepushers'], function(BytePushers) {
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
                 expect(result).not.toBe("Hello bytePushers");
             });
+            it('can format a sentence into camel case with a single letter word', function () {
+                var result = "Hello captainfalcon".toCamelCase().toNormalCase();
+                // Would think it would do this
+                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
+                // Actually does this
+                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
+                expect(result).not.toBe("Hello captainFalcon");
+            });
 
             describe('String.format', function () {
                 it('can format a string properly', function () {
