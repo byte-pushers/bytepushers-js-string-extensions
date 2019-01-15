@@ -56,6 +56,12 @@ define(['bytepushers'], function(BytePushers) {
 
                 expect(result).toBe(testStr); // testStr = "Hello this is a random string";
             });
+
+            it('can format a string properly', function() {
+                var result = String.format("I'm {1} a {2} powerful {3}", "frontend", "developer");
+
+                expect(result).toBe(testStr); // testStr = "I'm a powerful frontend developer";
+            });
         });
     });
 });
