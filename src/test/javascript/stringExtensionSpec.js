@@ -114,7 +114,7 @@ define(['bytepushers'], function(BytePushers) {
 
             it('will minimize first and second letters of first word and keep capital on second word and condense', function () {
 
-                var testString = "CAptain Falcon";
+                var testString = "captainFalcon";
 
                 var expectedResult = "captainFalcon";
 
@@ -124,10 +124,23 @@ define(['bytepushers'], function(BytePushers) {
 
             });
 
-            it('will minimize capital letter of first word and condense', function () {
-                var testString = "Rosalina & luma";
+            it('will minimize first and second letters of first word and keep capitalize on second word and condense', function () {
 
-                var expectedResult = "rosalina&Luma";
+                var testString = "MrCooper";
+
+                var expectedResult = "mrCooper";
+
+                var actualResult = testString.toCamelCase();
+
+                expect(actualResult).toBe(expectedResult);
+
+            });
+
+
+            it('will minimize capital letter of first word and condense', function () {
+                var testString = "RosalinaLuma";
+
+                var expectedResult = "rosalinaLuma";
 
                 var actualResult = testString.toCamelCase();
 
