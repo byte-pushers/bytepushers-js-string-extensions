@@ -62,7 +62,7 @@
     /**
      * <p>Convenience function that will format a string with dynamic variables.</p>
      * @static
-     * @param {...string} string - first argument is the string template to be formatted.  The remaining arguments are the format items (e.g. "{0}")
+     * @param {...string} string - first argument is the string template to be formatted.  The remaining arguments are the format/dynamic items (e.g. "{0}")
      * @function
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of the string after it has been formatted.
      * @author <a href="mailto:pouncilt.developer@gmail.com">Tont&eacute; Pouncil</a>
