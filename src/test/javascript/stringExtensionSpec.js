@@ -1,5 +1,6 @@
 define(['bytepushers'], function(BytePushers) {
-    describe("String extension tests:", function () {
+    describe("String extension tests:", function () {git branch
+
 
         var testStr = "Hello this is a random string";
 
