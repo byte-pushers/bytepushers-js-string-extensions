@@ -16,7 +16,7 @@
      * @author <a href="mailto:pouncilt.developer@gmail.com">Tont&eacute; Pouncil</a>
      */
     String.prototype.trim = function () {
-        return this.replace(/^\s+|\s+$/g, '');  
+        return this.replace(/^\s+|\s+$/g, '');
     };
 
     /**
