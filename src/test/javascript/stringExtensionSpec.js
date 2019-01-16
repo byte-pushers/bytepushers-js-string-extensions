@@ -1,5 +1,5 @@
 define(['bytepushers'], function(BytePushers) {
-    describe("String extension tests:", function() {
+    describe("String extension tests:", function () {
 
         var testStr = "Hello this is a random string";
 
@@ -8,6 +8,31 @@ define(['bytepushers'], function(BytePushers) {
                 var result = "                       l     shdasdk;lg;al j          ".trim();
 
                 expect(result).toBe("l     shdasdk;lg;al j");
+            });
+            it("Will Not Trim in Front of a String", function() {
+                var stringUnderTest = "ABC";
+                var expectedResult = " ABC";
+                var actualResult = stringUnderTest.trim();
+
+                expect(expectedResult).not.toBe(actualResult);
+                //expect(false).not.toBe(true);
+            });
+
+            it("Will Trim in Front of a String", function() {
+                var stringUnderTest = " ABC";
+                var expectedResult = "ABC";
+                var actualResult = stringUnderTest.trim();
+
+                expect(expectedResult).toBe(actualResult);
+                //expect(false).not.toBe(true);
+            });
+
+            it("Will Not Trim", function() {
+                var stringUnderTest = " ABC ";
+                var expectedResult = "ABC";
+                var actualResult = stringUnderTest.trim();
+                expect(actualResult).toBe(expectedResult);
+
             });
         });
 
