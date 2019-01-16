@@ -33,6 +33,20 @@
     }
 
     /**
+     * <p>Function that is used to determine if a string includes a certain character or string.</p>
+     * @function
+     * @param <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The string we are checking if is included.
+     * @return <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp">Boolean</a> True of the string is included, otherwise false.
+     * @author <a href="mailto:pouncilt.developer@gmail.com">Tont&eacute; Pouncil</a>
+     */
+    if (!String.prototype.match) {
+
+        String.prototype.match = function (apples, oranges) {
+            //return String.prototype.indexOf.apply(this, arguments) !== -1;
+            return this.indexOf(apples, oranges) !== -1;
+        };
+    }
+    /**
      * <p>Function that is used to format a sentence to camel case. (e.g. Hello world => helloWorld).</p>
      * @function
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of the string after it has been formatted to camel case.
@@ -62,7 +76,7 @@
     /**
      * <p>Convenience function that will format a string with dynamic variables.</p>
      * @static
-     * @param {...string} string - first argument is the string template to be formatted.  The remaining arguments are the format items (e.g. "{0}")
+     * @param {...string} string - first argument is the string template to be formatted. The remaining arguments will be dynamically injected into template variable placeholders.(e.g. "{0}")
      * @function
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of the string after it has been formatted.
      * @author <a href="mailto:pouncilt.developer@gmail.com">Tont&eacute; Pouncil</a>

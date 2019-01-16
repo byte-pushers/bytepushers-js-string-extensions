@@ -3,7 +3,7 @@ define(['bytepushers'], function(BytePushers) {
 
         var testStr = "Hello this is a random string";
 
-        describe('String.prototype.trim', function () {
+        describe('String.prototype.trim', function() {
             it('will trim whitespace correctly', function() {
                 var result = "                       l     shdasdk;lg;al j          ".trim();
 
@@ -11,7 +11,7 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
-        describe('String.prototype.includes', function () {
+        describe('String.prototype.includes', function() {
             it('can tell if a string includes a string', function() {
                 var result = testStr.includes("o this i");
 
@@ -25,7 +25,7 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
-        describe('String.prototype.toCamelCase', function () {
+        describe('String.prototype.toCamelCase', function() {
             it('can format a sentence into camel case', function() {
                 var result = "Hello this is a sentence.".toCamelCase();
 
@@ -33,7 +33,7 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
-        describe('String.prototype.toNormalCase', function () {
+        describe('String.prototype.toNormalCase', function() {
             it('can format a sentence into camel case', function() {
                 var result = "Hello world".toCamelCase().toNormalCase();
                 // helloWorld => "Hello World"
@@ -50,7 +50,7 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
-        describe('String.format', function () {
+        describe('String.format', function() {
             it('can format a string properly', function() {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
@@ -87,8 +87,34 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe(testStr);
                 testStr = "This is spicy";
             });
+
+            it('can format two dynamic variables into template.', function() {
+                var templateUnderTest = "I'm a {1} web {2}.";
+                var expectedResult = "I'm a powerful web developer.";
+                var actualResult = String.format(templateUnderTest, "powerful", "developer");
+                expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
+            });
+            it('can format with three dynamic variables into template.', function() {
+                var templateUnderTest = "The customer name is {1} and lives in {2} and his member number is {3}.";
+                var expectedResult = "The customer name is Rambo and lives in 80's and his member number is First Blood.";
+                var actualResult = String.format(templateUnderTest, "Rambo", "80's", "First Blood");
+                expect(actualResult).toBe(expectedResult); // testStr = "The customer name is Rambo and lives in 80's and his member number is First Blood.";
+            });
+
+            it('can format with no dynamic variables into template.', function() {
+                var templateUnderTest = "I'm a powerful web developer.";
+                var expectedResult = "I'm a powerful web developer.";
+                var actualResult = String.format(templateUnderTest, "I'm a powerful web developer.");
+                expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
+
+            });
+            it('can format one dynamic variables into template.', function() {
+                var templateUnderTest = "To {1} or not to be.";
+                var expectedResult = "To be or not to be.";
+                var actualResult = String.format(templateUnderTest, "be");
+                expect(actualResult).toBe(expectedResult); // testStr = "To be or not to be.";
+            });
+
         });
     });
 });
-
-
