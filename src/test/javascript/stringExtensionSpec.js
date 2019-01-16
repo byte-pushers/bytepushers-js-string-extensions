@@ -1,33 +1,20 @@
-define(['bytepushers'], function(BytePushers) {
-    describe("String extension tests:", function() {
-
+define(['bytepushers'], function (BytePushers) {
+    describe("String extension tests:", function () {
         var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
-
-
-
-
             it('will trim whitespace correctly', function () {
-
                 var testString = " Donkey Kong ";
-
                 var expectedResult = "Donkey Kong";
-
                 var actualResult = testString.trim();
-
                 expect(actualResult).toBe(expectedResult);
 
             });
 
             it('will trim whitespace correctly', function () {
-
                 var testString = " Duck Hunt";
-
                 var expectedResult = "Duck Hunt";
-
                 var actualResult = testString.trim();
-
                 expect(actualResult).toBe(expectedResult);
 
             });
@@ -92,13 +79,12 @@ define(['bytepushers'], function(BytePushers) {
         });
 
         describe('String.prototype.includes', function () {
-            it('can tell if a string includes a string', function() {
+            it('can tell if a string includes a string', function () {
                 var result = testStr.includes("o this i");
-
                 expect(result).toBe(true);
             });
 
-            it('can tell if a string does not include a string', function() {
+            it('can tell if a string does not include a string', function () {
                 var result = testStr.includes("This is not in the string");
 
                 expect(result).toBe(false);
@@ -106,18 +92,13 @@ define(['bytepushers'], function(BytePushers) {
         });
 
         describe('String.prototype.toCamelCase', function () {
-            it('can format a sentence into camel case', function() {
+            it('can format a sentence into camel case', function () {
                 var result = "Hello this is a sentence.".toCamelCase();
-
                 expect(result).toBe("helloThisIsASentence.");
             });
-
             it('will minimize first and second letters of first word and keep capital on second word and condense', function () {
-
                 var testString = "captainFalcon";
-
                 var expectedResult = "captainFalcon";
-
                 var actualResult = testString.toCamelCase();
 
                 expect(actualResult).toBe(expectedResult);
@@ -125,56 +106,41 @@ define(['bytepushers'], function(BytePushers) {
             });
 
             it('will minimize first and second letters of first word and keep capitalize on second word and condense', function () {
-
                 var testString = "MrCooper";
-
                 var expectedResult = "mrCooper";
-
                 var actualResult = testString.toCamelCase();
 
                 expect(actualResult).toBe(expectedResult);
 
             });
 
-
             it('will minimize capital letter of first word and condense', function () {
                 var testString = "RosalinaLuma";
-
                 var expectedResult = "rosalinaLuma";
-
                 var actualResult = testString.toCamelCase();
 
                 expect(actualResult).toBe(expectedResult);
             });
 
             it('will keep first letter of word minimized, capitalize first letter of second word and condense', function () {
-
                 var testString = "pokemon trainer";
-
                 var expectedResult = "pokemonTrainer";
-
                 var actualResult = testString.toCamelCase();
 
                 expect(actualResult).toBe(expectedResult);
             });
 
-        it('will minimize first letter of word', function () {
+            it('will minimize first letter of word', function () {
+                var testString = "Wario";
+                var expectedResult = "wario";
+                var actualResult = testString.toCamelCase();
 
-            var testString = "Wario";
-
-            var expectedResult = "wario";
-
-            var actualResult = testString.toCamelCase();
-
-            expect(actualResult).toBe(expectedResult);
-        });
+                expect(actualResult).toBe(expectedResult);
+            });
 
             it('will stay the same', function () {
-
                 var testString = "darkPit";
-
                 var expectedResult = "darkPit";
-
                 var actualResult = testString.toCamelCase();
 
                 expect(actualResult).toBe(expectedResult);
@@ -183,13 +149,13 @@ define(['bytepushers'], function(BytePushers) {
         });
 
         describe('String.prototype.toNormalCase', function () {
-            it('can format a sentence into camel case', function() {
+            it('can format a sentence into camel case', function () {
                 var result = "Hello world".toCamelCase().toNormalCase();
                 // helloWorld => "Hello World"
                 expect(result).toBe("Hello World");
             });
 
-            it('can format a sentence into camel case with a single letter word', function() {
+            it('can format a sentence into camel case with a single letter word', function () {
                 var result = "Hello this is a sentence".toCamelCase().toNormalCase();
                 // Would think it would do this
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
@@ -200,7 +166,7 @@ define(['bytepushers'], function(BytePushers) {
         });
 
         describe('String.format', function () {
-            it('can format a string properly', function() {
+            it('can format a string properly', function () {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
                 expect(result).toBe(testStr);  //testStr = "Hello this is a random string";
