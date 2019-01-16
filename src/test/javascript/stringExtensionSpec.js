@@ -83,34 +83,45 @@ define(['bytepushers'], function(BytePushers) {
             });
 
             it('can format a string properly with punctuation', function() {
-                var result = String.format("Hello {1}  name {2}  Tonegawa, {3} to {4} you {5}", "my", "is", "nice", "to");
+                var templateUnderTest = "Hello {1} name {2} Tonegawa, {3} to {4} you!";
+                var expectedResult = "Hello my name is Tonegawa, nice to meet you!";
+                var actualResult = String.format(templateUnderTest, "my", "is", "nice", "meet");
 
-                expect(result).toBe(testStr);  testStr = "Hello my name is Tonegawa, nice to meet you";
+                expect(actualResult).toBe(expectedResult);
             });
 
             it('can format a string using specific one number', function() {
-                var result = String.format(" random {3}", "This is", "a", "string");
+                var templateUnderTest = "{1} {2} random {3}.";
+                var expectedResult = "This is a random string.";
+                var actualResult = String.format(templateUnderTest, "This is", "a", "string");
 
-                expect(result).toBe(testStr);  testStr = "This is a random string";
+
+                expect(actualResult).toBe(expectedResult);
             });
 
             it('can format a string to different parts of the string', function() {
-                var result = String.format("Hello {1} random {3}", "there", "stranger");
+                var templateUnderTest = "Hello {1} random {2}";
+                var expectedResult = "Hello there random stranger";
+                var actualResult = String.format(templateUnderTest, "there", "stranger");
 
-                expect(result).toBe(testStr);  testStr = "Hello there random stranger";
+                expect(actualResult).toBe(expectedResult);
             });
 
             it('will not display blank assigned roles', function() {
-                var result = String.format("{1} {2} {3}", "I", "like", "pizza");
+                var templateUnderTest = "{1} {2} {3}!";
+                var expectedResult = "I like pizza!";
+                var actualResult = String.format(templateUnderTest, "I", "like", "pizza");
 
-                expect(result).toBe(testStr);  testStr = "I like pizza";
+                expect(actualResult).toBe(expectedResult);
             });
 
             it('will only display assigned roles', function() {
-                var result = String.format("This {1} is {2} spicy {3}");
+                var templateUnderTest = "This is spicy!";
+                var expectedResult = "This is spicy!";
+                var actualResult = String.format(templateUnderTest);
 
-                expect(result).toBe(testStr);
-                testStr = "This is spicy";
+                expect(actualResult).toBe(expectedResult);
+
             });
 
             it('can format two dynamic variables into template.', function() {
