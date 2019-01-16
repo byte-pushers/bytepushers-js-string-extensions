@@ -27,7 +27,9 @@ define(['bytepushers'], function(BytePushers) {
 
         describe('String.prototype.toCamelCase', function () {
             it('can format a sentence into camel case', function () {
-                var result = "Hello this is a sentence.".toCamelCase();
+                var stringUndertTest = "Hello this is a sentence."
+
+                    .toCamelCase();
 
                 expect(result).toBe("helloThisIsASentence.");
             });
