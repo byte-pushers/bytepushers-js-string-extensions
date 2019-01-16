@@ -63,7 +63,7 @@ define(['bytepushers'], function(BytePushers) {
                 var actualResult = String.format(templateUnderTest, "powerful", "developer");
                 expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
             });
-            it('', function() {
+            it('can format with three dynamic variables into template.', function() {
                 var templateUnderTest = "The customer name is {1} and lives in {2} and his member number is {3}.";
                 var expectedResult = "The customer name is Rambo and lives in 80's and his member number is First Blood.";
                 var actualResult = String.format(templateUnderTest, "Rambo", "80's", "First Blood");
