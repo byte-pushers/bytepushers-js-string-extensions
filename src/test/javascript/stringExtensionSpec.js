@@ -1,6 +1,5 @@
 define(['bytepushers'], function (BytePushers) {
     describe("String extension tests:", function () {
-
         var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
@@ -10,27 +9,27 @@ define(['bytepushers'], function (BytePushers) {
                 expect(result).toBe("happytime");
             });
             it("Will Not Trim in Front of a String", function () {
-                var frontTrimTest = "ABC";
+                var stringUnderTest = "ABC";
                 var expectedResult = " ABC";
-                var actualResult = frontTrimTest.trim();
+                var actualResult = stringUnderTest.trim();
 
                 expect(expectedResult).not.toBe(actualResult);
                 //expect(false).not.toBe(true);
             });
 
             it("Will Trim in Front of a String", function () {
-                var frontTrimTest = " ABC";
+                var stringUnderTest = " ABC";
                 var expectedResult = "ABC";
-                var actualResult = frontTrimTest.trim();
+                var actualResult = stringUnderTest.trim();
 
                 expect(expectedResult).toBe(actualResult);
                 //expect(false).not.toBe(true);
             });
 
             it("Will Not Trim", function () {
-                var noSpaceTrimTest = " ABC ";
+                var stringUnderTest = " ABC ";
                 var expectedResult = "ABC";
-                var actualResult = noSpaceTrimTest.trim();
+                var actualResult = stringUnderTest.trim();
                 expect(actualResult).toBe(expectedResult);
 
             });
@@ -52,7 +51,9 @@ define(['bytepushers'], function (BytePushers) {
             it('does this string include a number', function () {
                 var result = testStr.includes("number");
 
-                expect(result).toBe(true);
+                expect(result).toBe(false);
+
+                });
             });
 
             it('Does the string include a space', function () {
@@ -104,4 +105,4 @@ define(['bytepushers'], function (BytePushers) {
         });
 
     });
-});
+
