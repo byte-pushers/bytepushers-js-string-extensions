@@ -49,8 +49,8 @@ define(['bytepushers'], function (BytePushers) {
                 expect(result).toBe(false);
             });
 
-            it('does this string include play', function () {
-                var result = testStr.includes("play");
+            it('does this string include a number', function () {
+                var result = testStr.includes("number");
 
                 expect(result).toBe(true);
             });
