@@ -105,4 +105,3 @@ define(['bytepushers'], function (BytePushers) {
 
     });
 });
-});

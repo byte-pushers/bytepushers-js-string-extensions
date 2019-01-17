@@ -20,7 +20,7 @@
     };
 
     /**
-     * <p>Function that is used to d etermine if a string includes a certain character or string.</p>
+     * <p>Function that is used to determine if a string includes a certain character or string.</p>
      * @function
      * @param <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The string we are checking if is included.
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp">Boolean</a> True of the string is included, otherwise false.
