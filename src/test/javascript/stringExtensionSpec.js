@@ -43,66 +43,74 @@ define(['bytepushers'], function (BytePushers) {
             });
 
             it('can tell if a string does not include a string', function () {
-                var result = testStr.includes("This is not in the string");
-
-                expect(result).toBe(false);
+                var stringUnderTest = "Hello my name is Trevor";
+                var expectedResult = " ";
+                var actualResult = stringUnderTest.includes();
+                expect(expectedResult).not.toBe(actualResult);
             });
 
-            it('does this string include a number', function () {
-                var result = testStr.includes("number");
-
-                expect(result).toBe(false);
-
-                });
-            });
-
-            it('Does the string include a space', function () {
-                var result = testStr.includes(" ");
-
-                expect(result).toBe(false);
-            });
-
-            it("", function () {
-                var result = testStr.includes("");
-
-                expect(result).toBe(true);
+            it('Does this string include a the word power ball', function () {
+                var stringUnderTest = ' I love power ball';
+                var actualResult = stringUnderTest.includes("I love power ball");
+                var expectedResult = ' I love power ball';
+                expect(expectedResult).toBe(actualResult);
 
             });
 
-            describe('String.prototype.toCamelCase', function () {
-                it('can format a sentence into camel case', function () {
-                    var result = "Hello this is a sentence.".toCamelCase();
-
-                    expect(result).toBe("helloThisIsASentence.");
-                });
+            it('This string will not include the word apple', function () {
+                var stringUnderTest = "I have lots of pears";
+                var actualResult = stringUnderTest.includes("I have lots of pears");
+                var expectedResult = "I have lots of apples";
+                expect(actualResult).not.toBe(expectedResult);
             });
 
-            describe('String.prototype.toNormalCase', function () {
-                it('can format a sentence into camel case', function () {
-                    var result = "Hello world".toCamelCase().toNormalCase();
-                    // helloWorld => "Hello World"
-                    expect(result).toBe("Hello World");
-                });
+        });
 
+        describe('String.prototype.toCamelCase', function () {
+            it('can format a sentence into camel case', function () {
 
-                it('can format a sentence into camel case with a single letter word', function () {
-                    var result = "Hello this is a sentence".toCamelCase().toNormalCase();
-                    // Would think it would do this
-                    // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
-                    // Actually does this
-                    // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
-                    expect(result).toBe("Hello This Is A Sentence");
-                });
-            });
+                var stringUnderTest = "s.indexOf(' ') >= 0";
+                var expectedResult = "s.indexOf(' ') >= 0";
+                var actualResult = stringUnderTest.includes();
+                expect(expectedResult).toBe(actualResult);
+                var result = "Hello this is a sentence.".toCamelCase();
 
-            describe('String.format', function () {
-                it('can format a string properly', function () {
-                    var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
-
-                    expect(result).toBe(testStr); // testStr = "Hello this is a random string";
-                });
+                expect(result).toBe("helloThisIsASentence.");
             });
         });
 
-    });
+        describe('String.prototype.toNormalCase', function () {
+            it('can format a sentence into camel case', function () {
 
+                var stringUnderTest = "s.indexOf(' ') >= 0";
+                var expectedResult = "s.indexOf(' ') >= 0";
+                var actualResult = stringUnderTest.includes();
+                expect(expectedResult).toBe(actualResult);
+                var result = "Hello world".toCamelCase().toNormalCase();
+                // helloWorld => "Hello World"
+                expect(result).toBe("Hello World");
+            });
+
+            it('can format a sentence into camel case with a single letter word', function () {
+                var result = "Hello this is a sentence".toCamelCase().toNormalCase();
+                var stringUnderTest = "s.indexOf(' ') >= 0";
+                var expectedResult = "s.indexOf(' ') >= 0";
+                var actualResult = stringUnderTest.includes();
+                expect(expectedResult).toBe(actualResult);
+                // Would think it would do this
+                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
+                // Actually does this
+                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
+                expect(result).toBe("Hello This Is A Sentence");
+            });
+        });
+
+        describe('String.format', function () {
+            it('can format a string properly', function () {
+                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
+
+                expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+            });
+        });
+    });
+});
