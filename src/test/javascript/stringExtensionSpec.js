@@ -1,5 +1,6 @@
-define(['bytepushers'], function(BytePushers) {
+define(['bytepushers'], function (BytePushers) {
     describe("String extension tests:", function () {
+
         var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
@@ -8,6 +9,39 @@ define(['bytepushers'], function(BytePushers) {
 
                 expect(result).toBe("l     shdasdk;lg;al j");
             });
+
+            it('trim white space before and after string but not space between letters', function () {
+                var testString = " a b c ";
+                var expectedResult = "a b c";
+                var actualResult = testString.trim();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
+            it('trim white space before and after string but not space between words', function () {
+                var testString = " Donkey Kong ";
+                var expectedResult = "Donkey Kong";
+                var actualResult = testString.trim();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
+            it('trim white space after string but not space between words', function () {
+                var testString = "Duck Hunt ";
+                var expectedResult = "Duck Hunt";
+                var actualResult = testString.trim();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
+            it('white space will not be trimmed if there is no white space', function () {
+                var testString = "Ness";
+                var expectedResult = "Ness";
+                var actualResult = testString.trim();
+
+                expect(actualResult).toBe(expectedResult);
+            });
+
         });
 
         describe('String.prototype.includes', function () {
@@ -24,6 +58,14 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
+        describe('String.prototype.toCamelCase', function () {
+            it('can format a sentence into camel case', function () {
+                var result = "Hello this is a sentence.".toCamelCase();
+
+                expect(result).toBe("helloThisIsASentence.");
+            });
+        });
+
         describe('String.prototype.toNormalCase', function () {
             it('can format a sentence into camel case', function () {
                 var result = "Hello world".toCamelCase().toNormalCase();
@@ -31,12 +73,15 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe("Hello World");
             });
 
-            it('can format a sentence from camelCase to normal case', function () {
-                var stringUnderTest = "HelloBytePushersLetsGoToWork.".toCamelCase();
-                var actualResult = stringUnderTest.toNormalCase();
-                var expectedResult = "Hello Byte Pushers Lets Go To Work.";
-                expect(actualResult).toBe(expectedResult);
+        });
 
+            it('can format a sentence into camel case with a single letter word', function () {
+                var result = "Hello this is a sentence".toCamelCase().toNormalCase();
+                // Would think it would do this
+                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
+                // Actually does this
+                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
+                expect(result).toBe("Hello This Is A Sentence");
             });
 
             it('can format a sentence  that is expected not to be from normalCase to normalCase', function () {
@@ -55,16 +100,13 @@ define(['bytepushers'], function(BytePushers) {
 
             });
 
-            describe('String.format', function () {
-                it('can format a string properly', function () {
-                    var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
+        describe('String.format', function() {
+            it('can format a string properly', function() {
+                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
-                    expect(result).toBe(testStr); // testStr = "Hello this is a random string";
-                });
+                expect(result).toBe(testStr); // testStr = "Hello this is a random string";
             });
         });
     });
-
 });
-
 
