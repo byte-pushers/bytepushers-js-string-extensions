@@ -79,7 +79,7 @@ define(['bytepushers'], function (BytePushers) {
         });
 
         describe('String.prototype.includes', function () {
-            it('can tell if a string includes a string', function () {
+            it('can tell if a string includes a string', function() {
                 var result = testStr.includes("o this i");
                 expect(result).toBe(true);
             });
@@ -114,7 +114,7 @@ define(['bytepushers'], function (BytePushers) {
 
             });
 
-            it('will minimize capital letter of first word and condense', function () {
+            it('will minimize capital letter of first word and condense', function() {
                 var stringUnderTest = "RosalinaLuma";
                 var expectedResult = "rosalinaLuma";
                 var actualResult = stringUnderTest.toCamelCase();
