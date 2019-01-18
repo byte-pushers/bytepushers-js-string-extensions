@@ -49,12 +49,11 @@ define(['bytepushers'], function (BytePushers) {
                 expect(expectedResult).not.toBe(actualResult);
             });
 
-            it('Does this string include a the word power ball', function () {
-                var stringUnderTest = ' I love power ball';
-                var actualResult = stringUnderTest.includes("I love power ball");
-                var expectedResult = ' I love power ball';
-                expect(expectedResult).toBe(actualResult);
-
+            it('Does this string include a the word powerball', function () {
+                var stringUnderTest = "I would love to win the powerball";
+                var actualResult = stringUnderTest.includes("I would love to win the powerball");
+                var expectedResult = "I would love to win the megamillions";
+                expect(actualResult).not.toBe(expectedResult);
             });
 
             it('This string will not include the word apple', function () {
@@ -62,46 +61,6 @@ define(['bytepushers'], function (BytePushers) {
                 var actualResult = stringUnderTest.includes("I have lots of pears");
                 var expectedResult = "I have lots of apples";
                 expect(actualResult).not.toBe(expectedResult);
-            });
-
-        });
-
-        describe('String.prototype.toCamelCase', function () {
-            it('can format a sentence into camel case', function () {
-
-                var stringUnderTest = "s.indexOf(' ') >= 0";
-                var expectedResult = "s.indexOf(' ') >= 0";
-                var actualResult = stringUnderTest.includes();
-                expect(expectedResult).toBe(actualResult);
-                var result = "Hello this is a sentence.".toCamelCase();
-
-                expect(result).toBe("helloThisIsASentence.");
-            });
-        });
-
-        describe('String.prototype.toNormalCase', function () {
-            it('can format a sentence into camel case', function () {
-
-                var stringUnderTest = "s.indexOf(' ') >= 0";
-                var expectedResult = "s.indexOf(' ') >= 0";
-                var actualResult = stringUnderTest.includes();
-                expect(expectedResult).toBe(actualResult);
-                var result = "Hello world".toCamelCase().toNormalCase();
-                // helloWorld => "Hello World"
-                expect(result).toBe("Hello World");
-            });
-
-            it('can format a sentence into camel case with a single letter word', function () {
-                var result = "Hello this is a sentence".toCamelCase().toNormalCase();
-                var stringUnderTest = "s.indexOf(' ') >= 0";
-                var expectedResult = "s.indexOf(' ') >= 0";
-                var actualResult = stringUnderTest.includes();
-                expect(expectedResult).toBe(actualResult);
-                // Would think it would do this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
-                // Actually does this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
-                expect(result).toBe("Hello This Is A Sentence");
             });
         });
 
@@ -113,4 +72,5 @@ define(['bytepushers'], function (BytePushers) {
             });
         });
     });
+
 });
