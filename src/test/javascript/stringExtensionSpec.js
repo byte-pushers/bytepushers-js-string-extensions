@@ -1,22 +1,13 @@
-define(['bytepushers'], function (BytePushers) {
-    describe("String extension tests:", function () {
+define(['bytepushers'], function(BytePushers) {
+    describe("String extension tests:", function() {
+
         var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
-            it('will trim whitespace correctly', function () {
-                var stringUnderTest = " Donkey Kong ";
-                var expectedResult = "Donkey Kong";
-                var actualResult = stringUnderTest.trim();
-                expect(actualResult).toBe(expectedResult);
+            it('will trim whitespace correctly', function() {
+                var result = "                       l     shdasdk;lg;al j          ".trim();
 
-            });
-
-            it('will trim whitespace correctly', function () {
-                var stringUnderTest = " Duck Hunt";
-                var expectedResult = "Duck Hunt";
-                var actualResult = stringUnderTest.trim();
-                expect(actualResult).toBe(expectedResult);
-
+                expect(result).toBe("l     shdasdk;lg;al j");
             });
             it("Will Not Trim in Front of a String", function() {
                 var stringUnderTest = "ABC";
@@ -84,7 +75,7 @@ define(['bytepushers'], function (BytePushers) {
                 expect(result).toBe(true);
             });
 
-            it('can tell if a string does not include a string', function () {
+            it('can tell if a string does not include a string', function() {
                 var result = testStr.includes("This is not in the string");
 
                 expect(result).toBe(false);
@@ -92,8 +83,9 @@ define(['bytepushers'], function (BytePushers) {
         });
 
         describe('String.prototype.toCamelCase', function () {
-            it('can format a sentence into camel case', function () {
+            it('can format a sentence into camel case', function() {
                 var result = "Hello this is a sentence.".toCamelCase();
+
                 expect(result).toBe("helloThisIsASentence.");
             });
             it('will minimize first and second letters of first word and keep capital on second word and condense', function () {
@@ -149,13 +141,13 @@ define(['bytepushers'], function (BytePushers) {
         });
 
         describe('String.prototype.toNormalCase', function () {
-            it('can format a sentence into camel case', function () {
+            it('can format a sentence into camel case', function() {
                 var result = "Hello world".toCamelCase().toNormalCase();
                 // helloWorld => "Hello World"
                 expect(result).toBe("Hello World");
             });
 
-            it('can format a sentence into camel case with a single letter word', function () {
+            it('can format a sentence into camel case with a single letter word', function() {
                 var result = "Hello this is a sentence".toCamelCase().toNormalCase();
                 // Would think it would do this
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
@@ -166,7 +158,7 @@ define(['bytepushers'], function (BytePushers) {
         });
 
         describe('String.format', function () {
-            it('can format a string properly', function () {
+            it('can format a string properly', function() {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
                 expect(result).toBe(testStr);  //testStr = "Hello this is a random string";
