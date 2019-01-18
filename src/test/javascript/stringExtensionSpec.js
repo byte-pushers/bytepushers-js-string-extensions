@@ -73,6 +73,8 @@ define(['bytepushers'], function (BytePushers) {
                 expect(result).toBe("Hello World");
             });
 
+        });
+
             it('can format a sentence into camel case with a single letter word', function () {
                 var result = "Hello this is a sentence".toCamelCase().toNormalCase();
                 // Would think it would do this
@@ -108,20 +110,3 @@ define(['bytepushers'], function (BytePushers) {
     });
 });
 
-            it('can format with no dynamic variables into template.', function() {
-                var templateUnderTest = "I'm a powerful web developer.";
-                var expectedResult = "I'm a powerful web developer.";
-                var actualResult = String.format(templateUnderTest, "I'm a powerful web developer.");
-                expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
-
-            });
-            it('can format one dynamic variables into template.', function() {
-                var templateUnderTest = "To {1} or not to be.";
-                var expectedResult = "To be or not to be.";
-                var actualResult = String.format(templateUnderTest, "be");
-                expect(actualResult).toBe(expectedResult); // testStr = "To be or not to be.";
-            });
-
-        });
-    });
-});
