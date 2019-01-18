@@ -78,8 +78,8 @@ define(['bytepushers'], function(BytePushers) {
         describe('String.format', function() {
             it('can format a string properly', function() {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
-
-                expect(result).toBe(testStr);  testStr = "Hello this is a random string";
+                var  testStr = "Hello this is a random string";
+                expect(result).toBe(testStr);
             });
 
             it('can format a string properly with punctuation', function() {
