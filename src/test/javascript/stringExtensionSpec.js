@@ -9,31 +9,6 @@ define(['bytepushers'], function (BytePushers) {
 
                 expect(result).toBe("l     shdasdk;lg;al j");
             });
-            it("Will Not Trim in Front of a String", function() {
-                var stringUnderTest = "ABC";
-                var expectedResult = " ABC";
-                var actualResult = stringUnderTest.trim();
-
-                expect(expectedResult).not.toBe(actualResult);
-                //expect(false).not.toBe(true);
-            });
-
-            it("Will Trim in Front of a String", function() {
-                var stringUnderTest = " ABC";
-                var expectedResult = "ABC";
-                var actualResult = stringUnderTest.trim();
-
-                expect(expectedResult).toBe(actualResult);
-                //expect(false).not.toBe(true);
-            });
-
-            it("Will Not Trim", function() {
-                var stringUnderTest = " ABC ";
-                var expectedResult = "ABC";
-                var actualResult = stringUnderTest.trim();
-                expect(actualResult).toBe(expectedResult);
-
-            });
 
             it('trim white space before and after string but not space between letters', function () {
                 var testString = " a b c ";
@@ -106,10 +81,25 @@ define(['bytepushers'], function (BytePushers) {
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
                 expect(result).toBe("Hello This Is A Sentence");
             });
-        });
 
-        describe('String.format', function () {
-            it('can format a string properly', function () {
+            it('can format a sentence  that is expected not to be from normalCase to normalCase', function () {
+                var stringUnderTest = "Hello everyone look at the my string and its letter case.".toNormalCase();
+                var actualResult = stringUnderTest.toNormalCase();
+                var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
+                expect(expectedResult).not.toBe(actualResult);
+
+            });
+
+            it('can format a sentence from camelCase with a single letter word', function () {
+                var stringUnderTest = "Hello captain falcon".toCamelCase();
+                var actualResult = stringUnderTest.toNormalCase();
+                var expectedResult = "Hello Captain Falcon";
+                expect(actualResult).toBe(expectedResult);
+
+            });
+
+        describe('String.format', function() {
+            it('can format a string properly', function() {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
                 expect(result).toBe(testStr); // testStr = "Hello this is a random string";
@@ -118,4 +108,20 @@ define(['bytepushers'], function (BytePushers) {
     });
 });
 
+            it('can format with no dynamic variables into template.', function() {
+                var templateUnderTest = "I'm a powerful web developer.";
+                var expectedResult = "I'm a powerful web developer.";
+                var actualResult = String.format(templateUnderTest, "I'm a powerful web developer.");
+                expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
 
+            });
+            it('can format one dynamic variables into template.', function() {
+                var templateUnderTest = "To {1} or not to be.";
+                var expectedResult = "To be or not to be.";
+                var actualResult = String.format(templateUnderTest, "be");
+                expect(actualResult).toBe(expectedResult); // testStr = "To be or not to be.";
+            });
+
+        });
+    });
+});
