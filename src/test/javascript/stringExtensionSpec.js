@@ -1,7 +1,7 @@
 define(['bytepushers'], function(BytePushers) {
     describe("String extension tests:", function () {
 
-        var testStr = "Hello this is a random string";
+        var testStr = "Hello this is one random string";
 
         describe('String.prototype.trim', function() {
             it('will trim whitespace correctly', function() {
