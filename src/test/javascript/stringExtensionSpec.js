@@ -1,6 +1,5 @@
 define(['bytepushers'], function(BytePushers) {
     describe("String extension tests:", function () {
-
         var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
@@ -27,9 +26,7 @@ define(['bytepushers'], function(BytePushers) {
 
         describe('String.prototype.toCamelCase', function () {
             it('can format a sentence into camel case', function () {
-                var stringUndertTest = "Hello this is a sentence."
-
-                    .toCamelCase();
+                var result = "Hello this is a sentence.".toCamelCase();
 
                 expect(result).toBe("helloThisIsASentence.");
             });
@@ -42,13 +39,19 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe("Hello World");
             });
 
-            it('can format a sentence into camel case with a single letter word', function () {git
-                var result = "Hello bytepushers".toCamelCase().toNormalCase();
-                // Would think it would do this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
-                // Actually does this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
-                expect(result).toBe("Hello Bytepushers");
+            it('can format a sentence from camelCase to normal case', function () {
+                var stringUnderTest = "HelloBytePushersLetsGoToWork.".toCamelCase();
+                var actualResult = stringUnderTest.toNormalCase();
+                var expectedResult = "Hello Byte Pushers Lets Go To Work.";
+                expect(actualResult).toBe(expectedResult);
+
+            });
+
+            it('can format a sentence  that is expected not to be from normalCase to normalCase', function () {
+                var stringUnderTest = "Hello everyone look at the my string and its letter case.".toNormalCase();
+                var actualResult = stringUnderTest.toNormalCase();
+                var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
+                expect(expectedResult).not.toBe(actualResult);
             });
 
             it('can format a sentence into camel case with a single letter word', function () {
@@ -56,6 +59,13 @@ define(['bytepushers'], function(BytePushers) {
 
                 expect(result).not.toBe("Hello bytePushers");
             });
+
+            it('can format a sentence from camelCase with a single letter word', function () {
+                var stringUnderTest = "Hello captain falcon".toCamelCase();
+                var actualResult = stringUnderTest.toNormalCase();
+                var expectedResult = "Hello Captain Falcon";
+                expect(actualResult).toBe(expectedResult);
+
 
             it('can format a sentence into camel case with a single letter word', function () {
                 var result = "Hello captainfalcon".toCamelCase().toNormalCase();
