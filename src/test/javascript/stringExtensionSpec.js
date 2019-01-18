@@ -23,13 +23,6 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe(false);
             });
         });
-        describe('String.prototype.toCamelCase', function () {
-            it('can format a sentence into camel case', function () {
-                var result = "Hello this is a sentence.".toCamelCase();
-
-                expect(result).toBe("helloThisIsASentence.");
-            });
-        });
 
         describe('String.prototype.toNormalCase', function () {
             it('can format a sentence into camel case', function () {
@@ -51,12 +44,7 @@ define(['bytepushers'], function(BytePushers) {
                 var actualResult = stringUnderTest.toNormalCase();
                 var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
                 expect(expectedResult).not.toBe(actualResult);
-            });
 
-            it('can format a sentence into camel case with a single letter word', function () {
-                var result = "Hello bytepushers".toCamelCase().toNormalCase();
-
-                expect(result).not.toBe("Hello bytePushers");
             });
 
             it('can format a sentence from camelCase with a single letter word', function () {
@@ -65,21 +53,18 @@ define(['bytepushers'], function(BytePushers) {
                 var expectedResult = "Hello Captain Falcon";
                 expect(actualResult).toBe(expectedResult);
 
+            });
 
-                it('can format a sentence into camel case with a single letter word', function () {
-                    var result = "Hello captainfalcon".toCamelCase().toNormalCase();
+            describe('String.format', function () {
+                it('can format a string properly', function () {
+                    var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
-                    expect(result).not.toBe("Hello captainFalcon");
-                });
-
-                describe('String.format', function () {
-                    it('can format a string properly', function () {
-                        var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
-
-                        expect(result).toBe(testStr); // testStr = "Hello this is a random string";
-                    });
+                    expect(result).toBe(testStr); // testStr = "Hello this is a random string";
                 });
             });
         });
     });
+
 });
+
+
