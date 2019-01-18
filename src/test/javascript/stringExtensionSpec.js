@@ -23,8 +23,6 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe(false);
             });
         });
-
-<<<<<<< HEAD
         describe('String.prototype.toCamelCase', function () {
             it('can format a sentence into camel case', function () {
                 var result = "Hello this is a sentence.".toCamelCase();
@@ -33,8 +31,6 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
-=======
->>>>>>> update found error
         describe('String.prototype.toNormalCase', function () {
             it('can format a sentence into camel case', function () {
                 var result = "Hello world".toCamelCase().toNormalCase();
@@ -70,22 +66,20 @@ define(['bytepushers'], function(BytePushers) {
                 expect(actualResult).toBe(expectedResult);
 
 
-            it('can format a sentence into camel case with a single letter word', function () {
-                var result = "Hello captainfalcon".toCamelCase().toNormalCase();
+                it('can format a sentence into camel case with a single letter word', function () {
+                    var result = "Hello captainfalcon".toCamelCase().toNormalCase();
 
-                expect(result).not.toBe("Hello captainFalcon");
-            });
+                    expect(result).not.toBe("Hello captainFalcon");
+                });
 
-            describe('String.format', function () {
-                it('can format a string properly', function () {
-                    var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
+                describe('String.format', function () {
+                    it('can format a string properly', function () {
+                        var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
-                    expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+                        expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+                    });
                 });
             });
         });
     });
-
 });
-
-
