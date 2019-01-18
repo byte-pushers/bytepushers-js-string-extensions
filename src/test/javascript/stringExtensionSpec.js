@@ -26,7 +26,9 @@ define(['bytepushers'], function(BytePushers) {
 
         describe('String.prototype.toCamelCase', function () {
             it('can format a sentence into camel case', function () {
-                var result = "Hello this is a sentence.".toCamelCase();
+                var stringUndertTest = "Hello this is a sentence."
+
+                    .toCamelCase();
 
                 expect(result).toBe("helloThisIsASentence.");
             });
@@ -52,15 +54,7 @@ define(['bytepushers'], function(BytePushers) {
                 var actualResult = stringUnderTest.toNormalCase();
                 var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
                 expect(expectedResult).not.toBe(actualResult);
-            });
 
-            it('can format a sentence into camel case with a single letter word', function () {
-                var result = "Hello bytepushers".toCamelCase().toNormalCase();
-                // Would think it would do this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
-                // Actually does this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
-                expect(result).not.toBe("Hello bytePushers");
             });
 
             it('can format a sentence from camelCase with a single letter word', function () {
