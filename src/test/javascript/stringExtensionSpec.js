@@ -23,17 +23,6 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe(false);
             });
         });
-<<<<<<< HEAD
-        describe('String.prototype.toCamelCase', function () {
-            it('can format a sentence into camel case', function() {
-                var result = "Hello this is a sentence.".toCamelCase();
-
-                expect(result).toBe("helloThisIsASentence.");
-            });
-        });
-=======
->>>>>>> fd2690bf4fa6f168c0192abdc5302dd5879e9765
-
         describe('String.prototype.toNormalCase', function () {
             it('can format a sentence into camel case', function () {
                 var result = "Hello world".toCamelCase().toNormalCase();
@@ -63,6 +52,27 @@ define(['bytepushers'], function(BytePushers) {
                 var expectedResult = "Hello Captain Falcon";
                 expect(actualResult).toBe(expectedResult);
 
+            });
+
+            it('can tell if a string does not include a string', function () {
+                var stringUnderTest = "Hello my name is Trevor";
+                var expectedResult = " ";
+                var actualResult = stringUnderTest.includes();
+                expect(expectedResult).not.toBe(actualResult);
+            });
+
+            it('Does this string include a the word powerball', function () {
+                var stringUnderTest = "I would love to win the powerball";
+                var actualResult = stringUnderTest.includes("I would love to win the powerball");
+                var expectedResult = "I would love to win the megamillions";
+                expect(actualResult).not.toBe(expectedResult);
+            });
+
+            it('This string will not include the word apple', function () {
+                var stringUnderTest = "I have lots of pears";
+                var actualResult = stringUnderTest.includes("I have lots of pears");
+                var expectedResult = "I have lots of apples";
+                expect(actualResult).not.toBe(expectedResult);
             });
 
             describe('String.format', function () {
