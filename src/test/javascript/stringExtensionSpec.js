@@ -75,38 +75,56 @@ define(['bytepushers'], function (BytePushers) {
 
         });
 
-            it('can format a sentence into camel case with a single letter word', function () {
-                var result = "Hello this is a sentence".toCamelCase().toNormalCase();
-                // Would think it would do this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
-                // Actually does this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
-                expect(result).toBe("Hello This Is A Sentence");
-            });
+        it('can format a sentence into camel case with a single letter word', function () {
+            var result = "Hello this is a sentence".toCamelCase().toNormalCase();
+            // Would think it would do this
+            // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
+            // Actually does this
+            // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
+            expect(result).toBe("Hello This Is A Sentence");
+        });
 
-            it('can format a sentence  that is expected not to be from normalCase to normalCase', function () {
-                var stringUnderTest = "Hello everyone look at the my string and its letter case.".toNormalCase();
-                var actualResult = stringUnderTest.toNormalCase();
-                var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
-                expect(expectedResult).not.toBe(actualResult);
+        it('can format a sentence  that is expected not to be from normalCase to normalCase', function () {
+            var stringUnderTest = "Hello everyone look at the my string and its letter case.".toNormalCase();
+            var actualResult = stringUnderTest.toNormalCase();
+            var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
+            expect(expectedResult).not.toBe(actualResult);
 
-            });
+        });
 
-            it('can format a sentence from camelCase with a single letter word', function () {
-                var stringUnderTest = "Hello captain falcon".toCamelCase();
-                var actualResult = stringUnderTest.toNormalCase();
-                var expectedResult = "Hello Captain Falcon";
-                expect(actualResult).toBe(expectedResult);
+        it('can format a sentence from camelCase with a single letter word', function () {
+            var stringUnderTest = "Hello captain falcon".toCamelCase();
+            var actualResult = stringUnderTest.toNormalCase();
+            var expectedResult = "Hello Captain Falcon";
+            expect(actualResult).toBe(expectedResult);
 
-            });
+        });
 
-        describe('String.format', function() {
-            it('can format a string properly', function() {
+        describe('String.format', function () {
+            it('can format a string properly', function () {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
                 expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+
+
+            });
+
+            //describe('String.isEmpty', function () {
+                //it("can can tell if a string includes whitespace ", function () {
+                    //var result = String.isEmpty("Hello welcome to our lovely   .");
+
+                    //expect(result).toBe(true); // testStr = "Hello welcome to our lovely   .";
+                //});
+
+                it('can tell if a string includes whitespace using string method and regular expression ', function () {
+                    var stringUnderTest = ('hello   ');
+                    var actualResult = stringUnderTest.search(/^.+\s.+$/g);
+                    var expectedResult = ('hello   ');
+                    expect(actualResult).toBe(expectedResult);
+
+                });
+
             });
         });
     });
-});
 
