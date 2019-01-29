@@ -3,13 +3,13 @@ define(['bytepushers'], function(BytePushers) {
 
         var testStr = "Hello this is one random string";
 
-        describe('String.prototype.trim', function() {
-            it('will trim whitespace correctly', function() {
+        describe('String.prototype.trim', function () {
+            it('will trim whitespace correctly', function () {
                 var result = "                       l     shdasdk;lg;al j          ".trim();
 
                 expect(result).toBe("l     shdasdk;lg;al j");
             });
-            it("Will Not Trim in Front of a String", function() {
+            it("Will Not Trim in Front of a String", function () {
                 var stringUnderTest = "ABC";
                 var expectedResult = " ABC";
                 var actualResult = stringUnderTest.trim();
@@ -18,7 +18,7 @@ define(['bytepushers'], function(BytePushers) {
                 //expect(false).not.toBe(true);
             });
 
-            it("Will Trim in Front of a String", function() {
+            it("Will Trim in Front of a String", function () {
                 var stringUnderTest = " ABC";
                 var expectedResult = "ABC";
                 var actualResult = stringUnderTest.trim();
@@ -27,7 +27,7 @@ define(['bytepushers'], function(BytePushers) {
                 //expect(false).not.toBe(true);
             });
 
-            it("Will Not Trim", function() {
+            it("Will Not Trim", function () {
                 var stringUnderTest = " ABC ";
                 var expectedResult = "ABC";
                 var actualResult = stringUnderTest.trim();
@@ -36,36 +36,36 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
-        describe('String.prototype.includes', function() {
-            it('can tell if a string includes a string', function() {
+        describe('String.prototype.includes', function () {
+            it('can tell if a string includes a string', function () {
                 var result = testStr.includes("o this i");
 
                 expect(result).toBe(true);
             });
 
-            it('can tell if a string does not include a string', function() {
+            it('can tell if a string does not include a string', function () {
                 var result = testStr.includes("This is not in the string");
 
                 expect(result).toBe(false);
             });
         });
 
-        describe('String.prototype.toCamelCase', function() {
-            it('can format a sentence into camel case', function() {
+        describe('String.prototype.toCamelCase', function () {
+            it('can format a sentence into camel case', function () {
                 var result = "Hello this is a sentence.".toCamelCase();
 
                 expect(result).toBe("helloThisIsASentence.");
             });
         });
 
-        describe('String.prototype.toNormalCase', function() {
-            it('can format a sentence into camel case', function() {
+        describe('String.prototype.toNormalCase', function () {
+            it('can format a sentence into camel case', function () {
                 var result = "Hello world".toCamelCase().toNormalCase();
                 // helloWorld => "Hello World"
                 expect(result).toBe("Hello World");
             });
 
-            it('can format a sentence into camel case with a single letter word', function() {
+            it('can format a sentence into camel case with a single letter word', function () {
                 var result = "Hello this is a sentence".toCamelCase().toNormalCase();
                 // Would think it would do this
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
@@ -74,6 +74,38 @@ define(['bytepushers'], function(BytePushers) {
                 expect(result).toBe("Hello This Is A Sentence");
             });
         });
+
+        describe('String.isAlphabetical', function () {
+            it('will organize alphabet in order and remove other characters', function () {
+                var str = 'ac4bbbBB233defb';
+
+
+                return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+                //expected result: BBabbbbcdef
+            });
+
+            it('will organize alphabet in order and remove other characters from sentence', function () {
+                var str = 'S33 Y0u Sp4ce Cowb0y';
+
+
+                return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+                //expected result: CSSYbceopuwy
+            });
+
+            it('will remove any and all capital letters and organize afterwards', function () {
+                var str = 'COwBOY BeBOP';
+
+
+                return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+                //expected result: BBCOOOPew
+            });
+
+        });
+
+
 
         describe('String.format', function() {
             it('can format a string properly', function() {

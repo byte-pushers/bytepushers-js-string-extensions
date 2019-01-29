@@ -62,6 +62,19 @@
     };
 
     /**
+     *  <p> Function that is used to organize alphabet in order and remove other characters. (e.g. H3770 W0R7D => DHRW).</p>
+     *  @function
+     *  @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of a string after it has been alphabetized.
+     *  @author <a <a href="mailto:david.ocampo@bytepushers.software">David Ocampo</a>
+     */
+
+    if (!String.alphabetical) {
+
+        String.alphabetical = function () {
+            return this.replace(/[0-9]/g, '').split('').sort().join('');
+        };
+    }
+    /**
      * <p>Function that is used to turn a string that is in camel case format to a Normal sentence format. (e.g. helloWorld => Hello World)</p>
      * @function
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of the string after it has been formatted to a normal sentence format.
@@ -72,6 +85,9 @@
             return str.toUpperCase();
         });
     };
+
+
+
 
     /**
      * <p>Convenience function that will format a string with dynamic variables.</p>
