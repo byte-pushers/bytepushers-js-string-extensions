@@ -25,6 +25,10 @@ In the following code example, we call String.format(template, dynamicVars...) m
 //string
 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string"); // result ==> "Hello this is a random string"
 ```
+In the following code example, we call String.alphabetical organize alphabet in order and remove other characters:
+```javascript
+"H3ll0 W0rlD".replace(/[0-9]/g, '').split('').sort().join('');
+```
 ## Motivation
 The motivation behind the creation of the software.bytepushers.string.extensions.js was to provide additional convenient helper methods
 to the String Object as to promote re-usability. 
