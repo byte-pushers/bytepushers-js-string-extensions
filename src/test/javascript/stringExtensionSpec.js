@@ -109,22 +109,48 @@ define(['bytepushers'], function (BytePushers) {
 
             });
 
-            //describe('String.isEmpty', function () {
-                //it("can can tell if a string includes whitespace ", function () {
-                    //var result = String.isEmpty("Hello welcome to our lovely   .");
+            // describe('String.isEmpty', function () {
+            //     it("can can tell if a string includes whitespace ", function () {
+            //         var result = ("Hello welcome to our lovely   .");
+            //
+            //         expect(result).toBe(true); // testStr = "Hello welcome to our lovely   .";
+            //     });
 
-                    //expect(result).toBe(true); // testStr = "Hello welcome to our lovely   .";
-                //});
+                // it('can tell if a string includes whitespace using string method and regular expression ', function () {
+                //     var stringUnderTest = ('hello   ');
+                //     var actualResult = stringUnderTest.search(/^.+\s.+$/g);
+                //     var expectedResult = ('hello   ');
+                //     expect(actualResult).toBe(expectedResult);
+                // });
 
-                it('can tell if a string includes whitespace using string method and regular expression ', function () {
-                    var stringUnderTest = ('hello   ');
-                    var actualResult = stringUnderTest.search(/^.+\s.+$/g);
-                    var expectedResult = ('hello   ');
-                    expect(actualResult).toBe(expectedResult);
+            });
+
+            describe('String.prototype.isNumeric', function () {
+                it(' can show a string converted to an array ', function () {
+                    var stringUnderTest = ('123 this string includes a number');
+                    var actualResult = stringUnderTest.split('');
+                    var expectedResult = (['1', '2', '3', ' ', 't', 'h', 'i', 's', ' ', 's', 't', 'r', 'i', 'n', 'g', ' ', 'i', 'n', 'c', 'l', 'u', 'd', 'e', 's', ' ', 'a', ' ', 'n', 'u', 'm', 'b', 'e', 'r']);
+                    expect(actualResult).toBeTruthy(expectedResult);
+                });
+
+                it(' will show a string contains a number ', function () {
+                    var stringUnderTest = ('123 this string includes a number');
+                    var actualResult = stringUnderTest.match(/\d+/g);
+                    var expectedResult = '123';
+                    expect(actualResult).toBeTruthy(expectedResult);
 
                 });
 
             });
+            it('can tell if a string includes whitespace using string method and regular expression ', function () {
+                var stringUnderTest = ('I\'m a random string with numbers 123');
+                var actualResult = stringUnderTest.search(/^.+\s.+$/g);
+                var expectedResult = ('hello   ');
+
+            });
+
         });
+
+
     });
 
