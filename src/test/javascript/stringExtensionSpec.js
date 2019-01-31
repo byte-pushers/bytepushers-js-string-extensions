@@ -1,4 +1,4 @@
-define(['bytepushers'], function(BytePushers) {
+define(['bytepushers'], function (BytePushers) {
     describe("String extension tests:", function () {
 
         var testStr = "Hello this is one random string";
@@ -75,46 +75,85 @@ define(['bytepushers'], function(BytePushers) {
             });
         });
 
+        // describe('String.isAlphabetical', function () {
+        //   it('will organize alphabet in order and remove other characters', function () {
+        //     var str = 'ac4bbbBB233defb';
+
+
+        //    return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+        //expected result: BBabbbbcdef
+        //  });
+
+        // it('will organize alphabet in order and remove other characters from sentence', function () {
+        //   var str = 'S33 Y0u Sp4ce Cowb0y';
+
+
+        //  return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+        //expected result: CSSYbceopuwy
+        //  });
+
+        // it('will remove any and all capital letters and organize afterwards', function () {
+        //    var str = 'COwBOY BeBOP';
+
+
+        //  return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+        //expected result: BBCOOOPew
+        //   });
+
+        //   });
+
+        //NEW REVISED CODE GOES HERE
+
         describe('String.isAlphabetical', function () {
-            it('will organize alphabet in order and remove other characters', function () {
-                var str = 'ac4bbbBB233defb';
+            it('can determine if a string only contains alphabetical characters', function () {
+                var testUnderString = ("abcdefghiklmnopqrstuvwxyz");
+                // var expectedResult = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+                var actualResult = testUnderString.split('');
+
+                var alphabet = /[A-Za-z]/;
+
+                // expect(actualResult).toEqual(expectedResult);
+
+                //create for loop
+                for (i = 0; i < actualResult.length; ) {
+                    if (actualResult === alphabet, i) {
+                        alert('You have a match!');
+                        return true;
+
+                    }
+                    else if (actualResult !== alphabet) {
+                        alert("There's a number in your string!");
+                        return true;
 
 
-                return str.replace(/[0-9]/g, '').split('').sort().join('');
-
-                //expected result: BBabbbbcdef
-            });
-
-            it('will organize alphabet in order and remove other characters from sentence', function () {
-                var str = 'S33 Y0u Sp4ce Cowb0y';
+                    }
 
 
-                return str.replace(/[0-9]/g, '').split('').sort().join('');
-
-                //expected result: CSSYbceopuwy
-            });
-
-            it('will remove any and all capital letters and organize afterwards', function () {
-                var str = 'COwBOY BeBOP';
+                }
 
 
-                return str.replace(/[0-9]/g, '').split('').sort().join('');
+                // Determine if characters in actualResult [Array] are part of alphabet [variable]
+                //Pull each character from the loop
+                //Keep going til end of string if true
+                //Break out of loop once false match found
 
-                //expected result: BBCOOOPew
+
             });
 
         });
 
 
-
-        describe('String.format', function() {
-            it('can format a string properly', function() {
+        describe('String.format', function () {
+            it('can format a string properly', function () {
                 var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
-                var  testStr = "Hello this is a random string";
+                var testStr = "Hello this is a random string";
                 expect(result).toBe(testStr);
             });
 
-            it('can format a string properly with punctuation', function() {
+            it('can format a string properly with punctuation', function () {
                 var templateUnderTest = "Hello {1} name {2} Tonegawa, {3} to {4} you!";
                 var expectedResult = "Hello my name is Tonegawa, nice to meet you!";
                 var actualResult = String.format(templateUnderTest, "my", "is", "nice", "meet");
@@ -122,7 +161,7 @@ define(['bytepushers'], function(BytePushers) {
                 expect(actualResult).toBe(expectedResult);
             });
 
-            it('can format a string using specific one number', function() {
+            it('can format a string using specific one number', function () {
                 var templateUnderTest = "{1} {2} random {3}.";
                 var expectedResult = "This is a random string.";
                 var actualResult = String.format(templateUnderTest, "This is", "a", "string");
@@ -131,7 +170,7 @@ define(['bytepushers'], function(BytePushers) {
                 expect(actualResult).toBe(expectedResult);
             });
 
-            it('can format a string to different parts of the string', function() {
+            it('can format a string to different parts of the string', function () {
                 var templateUnderTest = "Hello {1} random {2}";
                 var expectedResult = "Hello there random stranger";
                 var actualResult = String.format(templateUnderTest, "there", "stranger");
@@ -139,7 +178,7 @@ define(['bytepushers'], function(BytePushers) {
                 expect(actualResult).toBe(expectedResult);
             });
 
-            it('will not display blank assigned roles', function() {
+            it('will not display blank assigned roles', function () {
                 var templateUnderTest = "{1} {2} {3}!";
                 var expectedResult = "I like pizza!";
                 var actualResult = String.format(templateUnderTest, "I", "like", "pizza");
@@ -147,7 +186,7 @@ define(['bytepushers'], function(BytePushers) {
                 expect(actualResult).toBe(expectedResult);
             });
 
-            it('will only display assigned roles', function() {
+            it('will only display assigned roles', function () {
                 var templateUnderTest = "This is spicy!";
                 var expectedResult = "This is spicy!";
                 var actualResult = String.format(templateUnderTest);
@@ -156,27 +195,27 @@ define(['bytepushers'], function(BytePushers) {
 
             });
 
-            it('can format two dynamic variables into template.', function() {
+            it('can format two dynamic variables into template.', function () {
                 var templateUnderTest = "I'm a {1} web {2}.";
                 var expectedResult = "I'm a powerful web developer.";
                 var actualResult = String.format(templateUnderTest, "powerful", "developer");
                 expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
             });
-            it('can format with three dynamic variables into template.', function() {
+            it('can format with three dynamic variables into template.', function () {
                 var templateUnderTest = "The customer name is {1} and lives in {2} and his member number is {3}.";
                 var expectedResult = "The customer name is Rambo and lives in 80's and his member number is First Blood.";
                 var actualResult = String.format(templateUnderTest, "Rambo", "80's", "First Blood");
                 expect(actualResult).toBe(expectedResult); // testStr = "The customer name is Rambo and lives in 80's and his member number is First Blood.";
             });
 
-            it('can format with no dynamic variables into template.', function() {
+            it('can format with no dynamic variables into template.', function () {
                 var templateUnderTest = "I'm a powerful web developer.";
                 var expectedResult = "I'm a powerful web developer.";
                 var actualResult = String.format(templateUnderTest, "I'm a powerful web developer.");
                 expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
 
             });
-            it('can format one dynamic variables into template.', function() {
+            it('can format one dynamic variables into template.', function () {
                 var templateUnderTest = "To {1} or not to be.";
                 var expectedResult = "To be or not to be.";
                 var actualResult = String.format(templateUnderTest, "be");
