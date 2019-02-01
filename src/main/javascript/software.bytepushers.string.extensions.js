@@ -68,10 +68,36 @@
      *  @author <a <a href="mailto:david.ocampo@bytepushers.software">David Ocampo</a>
      */
 
-    if (!String.alphabetical) {
+    if (!String.prototype.isAlphabetical) {
 
-        String.alphabetical = function () {
-            return this.replace(/[0-9]/g, '').split('').sort().join('');
+        String.prototype.isAlphabetical = function () {
+            //return this.replace(/[0-9]/g, '').split('').sort().join('');
+            var isAlphabetical = false;
+            var trueAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+            //var i;
+
+            // Note: the key word this represents the string that calls this isAlphabetical() method.
+            // TODO: split the string into array and assign to a variable.
+            var charactersArray = this.replace(" ","").split('');
+            // TODO: loop through the newly created array.
+            for (var i=0; i < charactersArray.length; i++){
+                // TODO: get each element out of newly created array
+                var character = charactersArray[i];
+                // TODO: determine if the true alphabet includes element.
+                //if (this.includes(trueAlphabet[i])){
+                if (trueAlphabet.includes(character)) { //TODO
+
+                    console.log('Character "' + character + '" is an alphabet');
+                    isAlphabetical = true;
+                } else if (this !== trueAlphabet) {
+
+                    console.log('Character "' + character + '" is not alphabet');
+                    isAlphabetical = false;
+                    break;
+                }
+            }
+            return isAlphabetical;
+
         };
     }
     /**
@@ -80,7 +106,7 @@
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of the string after it has been formatted to a normal sentence format.
      * @author <a href="mailto:pouncilt.developer@gmail.com">Tont&eacute; Pouncil</a>
      */
-    String.prototype.toNormalCase = function () {
+        String.prototype.toNormalCase = function () {
         return this.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([A-Z])([A-Z])/g, '$1 $2').replace(/^./, function (str) {
             return str.toUpperCase();
         });

@@ -109,39 +109,33 @@ define(['bytepushers'], function (BytePushers) {
 
         describe('String.isAlphabetical', function () {
             it('can determine if a string only contains alphabetical characters', function () {
-                var testUnderString = ("abcdefghiklmnopqrstuvwxyz");
-                // var expectedResult = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-                var actualResult = testUnderString.split('');
-
-                var alphabet = /[A-Za-z]/;
-
-                // expect(actualResult).toEqual(expectedResult);
-
-                //create for loop
-                for (i = 0; i < actualResult.length; ) {
-                    if (actualResult === alphabet, i) {
-                        alert('You have a match!');
-                        return true;
-
-                    }
-                    else if (actualResult !== alphabet) {
-                        alert("There's a number in your string!");
-                        return true;
-
-
-                    }
-
-
-                }
-
-
-                // Determine if characters in actualResult [Array] are part of alphabet [variable]
-                //Pull each character from the loop
-                //Keep going til end of string if true
-                //Break out of loop once false match found
-
-
+                var testUnderString = 'Street Fighter';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = true;
+                expect(actualResult).toBe(expectedResult);
             });
+
+            it('will stop once it catches punctuation at beginning.', function () {
+                var testUnderString = 'M. Bison is the strongest character in Street Fighter II';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
+            })
+
+            it('can determine if numbers in sentence are considered part of alphabet', function () {
+                var testUnderString = '60 seconds';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
+            })
+
+            it('can determine if special characters are included in sentence', function () {
+                var testUnderString = 'KO! Chun Li Wins!';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
+            })
+
 
         });
 
