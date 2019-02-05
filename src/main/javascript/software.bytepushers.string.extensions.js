@@ -64,7 +64,7 @@
     /**
      *  <p> Function that is used to read only letters in a string.</p>
      *  @function
-     *  @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of a string after it has been alphabetized.
+     *  @return <a href="https://www.w3schools.com/jsref/jsref_includes.asp ">Includes</a> Checks to see if a variable includes another variable.
      *  @author <a <a href="mailto:david.ocampo@bytepushers.software">David Ocampo</a>
      */
 
@@ -104,7 +104,7 @@
     /**
      *  <p> Function that is used to read both letters and numbers in a string.</p>
      *  @function
-     *  @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of a string after it has been alphabetized.
+     *  @return <a href="https://www.w3schools.com/jsref/jsref_includes.asp ">Includes</a> Checks to see if a variable includes another variable.
      *  @author <a <a href="mailto:david.ocampo@bytepushers.software">David Ocampo</a>
      */
 
