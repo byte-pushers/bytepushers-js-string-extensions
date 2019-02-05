@@ -109,6 +109,43 @@ define(['bytepushers'], function (BytePushers) {
 
             });
 
+
+            describe('String.isNumeric', function () {
+                it('can determine if a array contains numbers ', function () {
+                    var arrayUnderTest = '1234 ';
+                    var actualResult = arrayUnderTest.isNumeric();
+                    var expectedResult = true;
+                    expect(actualResult).toBe(expectedResult);
+
+                });
+
+                it('can determine if a array contains numbers ', function () {
+                    var arrayUnderTest = 'Hello Tony';
+                    var actualResult = arrayUnderTest.isNumeric();
+                    var expectedResult = true;
+                    expect(actualResult).toBe(expectedResult);
+
+                });
+
+
+                it('can determine if a array contains numbers ', function () {
+                    var arrayUnderTest = '';
+                    var actualResult = arrayUnderTest.isNumeric();
+                    var expectedResult = true;
+                    expect(actualResult).toBe(expectedResult);
+
+                });
+
+                it('can determine if a array contains numbers ', function () {
+                    var arrayUnderTest = '123 Hello Tony';
+                    var actualResult = arrayUnderTest.isNumeric();
+                    var expectedResult = true;
+                    expect(actualResult).not.toBe(expectedResult);
+
+                });
+
+            });
+
             // describe('String.isEmpty', function () {
             //     it("can can tell if a string includes whitespace ", function () {
             //         var result = ("Hello welcome to our lovely   .");
