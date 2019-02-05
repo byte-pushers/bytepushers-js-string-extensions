@@ -62,7 +62,7 @@
     };
 
     /**
-     *  <p> Function that is used to organize alphabet in order and remove other characters. (e.g. H3770 W0R7D => DHRW).</p>
+     *  <p> Function that is used to read only letters in a string.</p>
      *  @function
      *  @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of a string after it has been alphabetized.
      *  @author <a <a href="mailto:david.ocampo@bytepushers.software">David Ocampo</a>
@@ -78,7 +78,7 @@
 
             // Note: the key word this represents the string that calls this isAlphabetical() method.
             // TODO: split the string into array and assign to a variable.
-            var charactersArray = this.replace(" ","").split('');
+            var charactersArray = this.replace(/ /g,'').split('');
             // TODO: loop through the newly created array.
             for (var i=0; i < charactersArray.length; i++){
                 // TODO: get each element out of newly created array
@@ -97,6 +97,46 @@
                 }
             }
             return isAlphabetical;
+
+        };
+    }
+
+    /**
+     *  <p> Function that is used to read both letters and numbers in a string.</p>
+     *  @function
+     *  @return <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The value of a string after it has been alphabetized.
+     *  @author <a <a href="mailto:david.ocampo@bytepushers.software">David Ocampo</a>
+     */
+
+    if (!String.prototype.isAlphanumeric) {
+
+        String.prototype.isAlphanumeric = function () {
+            //return this.replace(/[0-9]/g, '').split('').sort().join('');
+            var isAlphanumeric = false;
+            var trueAlphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split('');
+            //var i;
+
+            // Note: the key word this represents the string that calls this isAlphabetical() method.
+            // TODO: split the string into array and assign to a variable.
+            var charactersArray = this.replace(/ /g,'').split('');
+            // TODO: loop through the newly created array.
+            for (var i=0; i < charactersArray.length; i++){
+                // TODO: get each element out of newly created array
+                var character = charactersArray[i];
+                // TODO: determine if the true alphabet includes element.
+                //if (this.includes(trueAlphabet[i])){
+                if (trueAlphanumeric.includes(character)) { //TODO
+
+                    console.log('Character "' + character + '" is alphanumeric');
+                    isAlphanumeric = true;
+                } else if (this !== trueAlphanumeric) {
+
+                    console.log('Character "' + character + '" is not alphanumeric');
+                    isAlphanumeric = false;
+                    break;
+                }
+            }
+            return isAlphanumeric;
 
         };
     }
