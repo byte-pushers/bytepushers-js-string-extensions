@@ -7,62 +7,28 @@ define(['bytepushers'], function (BytePushers) {
 
 
 
-        // describe('String.isAlphabetical', function () {
-        //   it('will organize alphabet in order and remove other characters', function () {
-        //     var str = 'ac4bbbBB233defb';
-
-
-        //    return str.replace(/[0-9]/g, '').split('').sort().join('');
-
-        //expected result: BBabbbbcdef
-        //  });
-
-        // it('will organize alphabet in order and remove other characters from sentence', function () {
-        //   var str = 'S33 Y0u Sp4ce Cowb0y';
-
-
-        //  return str.replace(/[0-9]/g, '').split('').sort().join('');
-
-        //expected result: CSSYbceopuwy
-        //  });
-
-        // it('will remove any and all capital letters and organize afterwards', function () {
-        //    var str = 'COwBOY BeBOP';
-
-
-        //  return str.replace(/[0-9]/g, '').split('').sort().join('');
-
-        //expected result: BBCOOOPew
-        //   });
-
-        //   });
-
-        //NEW REVISED CODE GOES HERE
-
-        describe('String.isAlphabetical', function () {
-            it('can determine if a string only contains alphabetical characters', function () {
-                var testUnderString = 'Street Fighter II';
-                var actualResult = testUnderString.isAlphabetical();
+        describe('String.isAlphanumeric', function () {
+            it('can determine if a string only contains both alphabetical and numerical characters', function () {
+                var testUnderString = 'Tekken 3';
+                var actualResult = testUnderString.isAlphanumeric();
                 var expectedResult = true;
                 expect(actualResult).toBe(expectedResult);
             });
 
-            it('can determine if numbers in sentence are considered part of alphabet', function () {
-                var testUnderString = '60 seconds';
-                var actualResult = testUnderString.isAlphabetical();
+            it('can determine if a string contains special characters', function () {
+                var testUnderString = 'Jack 3 Wins!';
+                var actualResult = testUnderString.isAlphanumeric();
                 var expectedResult = false;
                 expect(actualResult).toBe(expectedResult);
-            })
+            });
 
-            it('can determine if special characters are included in sentence', function () {
-                var testUnderString = 'KO! Chun Li Wins!';
-                var actualResult = testUnderString.isAlphabetical();
+            it('can determine if a string contains special characters', function () {
+                var testUnderString = 'P4Ul_ Ph30N1X';
+                var actualResult = testUnderString.isAlphanumeric();
                 var expectedResult = false;
                 expect(actualResult).toBe(expectedResult);
-            })
+            });
         });
-
-
 
 
 
