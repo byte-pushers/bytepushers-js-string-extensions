@@ -111,24 +111,21 @@ define(['bytepushers'], function (BytePushers) {
 
 
             describe('String.isEmpty', function () {
-                it(' will determine if the string do not contains characters ', function () {
+                it(' will determine if the string does not contain characters ', function () {
                     var arrayUnderTest = "";
                     var actualResult = arrayUnderTest.isEmpty();
                     var expectedResult = true;
                     expect(actualResult).toBe(expectedResult);
                 });
-
-
-                it(' will determine if the string  does not contain numbers ', function () {
-                    var arrayUnderTest = '';
+                it(' will determine if the string is empty even when the string contains characters ', function () {
+                    var arrayUnderTest = '123adc';
                     var actualResult = arrayUnderTest.isEmpty();
-                    var expectedResult = true;
+                    var expectedResult = false;
                     expect(actualResult).toBe(expectedResult);
                 });
 
-
-                it(' will determine if the string contains null ', function () {
-                    var arrayUnderTest = "";
+                it(' will determine if string is empty even when the string only contains whitespaces ', function () {
+                    var arrayUnderTest = '   ';
                     var actualResult = arrayUnderTest.isEmpty();
                     var expectedResult = true;
                     expect(actualResult).toBe(expectedResult);
@@ -141,13 +138,13 @@ define(['bytepushers'], function (BytePushers) {
                 //expect(result).toBe(true); // testStr = "Hello welcome to our lovely   .";
                 //});
 
-                it('can tell if a string includes whitespace using string method and regular expression ', function () {
-                    var stringUnderTest = ('hello   ');
-                    var actualResult = stringUnderTest.search(/^.+\s.+$/g);
-                    var expectedResult = ('hello   ');
-                    expect(actualResult).toBe(expectedResult);
-
-                });
+                // it('can tell if a string includes whitespace using string method and regular expression ', function () {
+                //     var stringUnderTest = ('hello   ');
+                //     var actualResult = stringUnderTest.search(/^.+\s.+$/g);
+                //     var expectedResult = ('hello   ');
+                //     expect(actualResult).toBe(expectedResult);
+                //
+                // });
 
             });
 
