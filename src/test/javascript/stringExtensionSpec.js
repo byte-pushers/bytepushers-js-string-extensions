@@ -109,11 +109,36 @@ define(['bytepushers'], function (BytePushers) {
 
             });
 
-            //describe('String.isEmpty', function () {
-                //it("can can tell if a string includes whitespace ", function () {
-                    //var result = String.isEmpty("Hello welcome to our lovely   .");
 
-                    //expect(result).toBe(true); // testStr = "Hello welcome to our lovely   .";
+            describe('String.isEmpty', function () {
+                it(' will determine if the string do not contains characters ', function () {
+                    var arrayUnderTest = "";
+                    var actualResult = arrayUnderTest.isEmpty();
+                    var expectedResult = true;
+                    expect(actualResult).toBe(expectedResult);
+                });
+
+
+                it(' will determine if the string  does not contain numbers ', function () {
+                    var arrayUnderTest = '';
+                    var actualResult = arrayUnderTest.isEmpty();
+                    var expectedResult = true;
+                    expect(actualResult).toBe(expectedResult);
+                });
+
+
+                it(' will determine if the string contains null ', function () {
+                    var arrayUnderTest = "";
+                    var actualResult = arrayUnderTest.isEmpty();
+                    var expectedResult = true;
+                    expect(actualResult).toBe(expectedResult);
+                });
+
+                //describe('String.isEmpty', function () {
+                //it("can can tell if a string includes whitespace ", function () {
+                //var result = String.isEmpty("Hello welcome to our lovely   .");
+
+                //expect(result).toBe(true); // testStr = "Hello welcome to our lovely   .";
                 //});
 
                 it('can tell if a string includes whitespace using string method and regular expression ', function () {
@@ -125,6 +150,12 @@ define(['bytepushers'], function (BytePushers) {
                 });
 
             });
+
+
         });
+
+
     });
 
+
+});
