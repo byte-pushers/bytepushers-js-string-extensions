@@ -134,5 +134,31 @@
             return searchResult;
         };
     }
+
+
+    /**
+     * <p>Convenience function that will return true if string is empty.</p>
+     * @static
+     * @param {...string} string -  Function that measures if your string contains characters or not
+     * @function
+     * @return <a href="https://www.w3schools.com/jsref/jsref_length_string.asp>String</a> The length property returns the length of a string (number of characters).
+
+     The length of an empty string is 0..
+     * @author <a href="mailto:anthony.gamble@bytepushers.sotfware.com">Anthony; Gamble</a>
+     */
+
+    String.prototype.isEmpty = function () {
+        //return this.toString().length === 0 || /^\s*$/.test();
+        var isEmptyString = false;
+        //TODO: Check if isEmptyString contains only whitespace, if that is the case set isEmptyString value to true
+        var trimmedString = this.trim();
+
+
+        //TODO: Check length if length is 0 then string is empty, if that's the case set isEmptyString value to true
+        if (trimmedString.length === 0) {
+            isEmptyString = true;
+        }
+        return isEmptyString;
+    };
     /* END String Extensions *****************************************************************************************************/
 }());
