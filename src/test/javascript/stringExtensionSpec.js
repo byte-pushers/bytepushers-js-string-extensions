@@ -1,63 +1,72 @@
-define(['bytepushers'], function(BytePushers) {
-    describe("String extension tests:", function() {
+define(['bytepushers'], function (BytePushers) {
+    describe("String extension tests:", function () {
 
-        var testStr = "Hello this is a random string";
+        var testStr = "Hello this is one random string";
 
-        describe('String.prototype.trim', function () {
-            it('will trim whitespace correctly', function() {
-                var result = "                       l     shdasdk;lg;al j          ".trim();
 
-                expect(result).toBe("l     shdasdk;lg;al j");
+
+
+
+        // describe('String.isAlphabetical', function () {
+        //   it('will organize alphabet in order and remove other characters', function () {
+        //     var str = 'ac4bbbBB233defb';
+
+
+        //    return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+        //expected result: BBabbbbcdef
+        //  });
+
+        // it('will organize alphabet in order and remove other characters from sentence', function () {
+        //   var str = 'S33 Y0u Sp4ce Cowb0y';
+
+
+        //  return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+        //expected result: CSSYbceopuwy
+        //  });
+
+        // it('will remove any and all capital letters and organize afterwards', function () {
+        //    var str = 'COwBOY BeBOP';
+
+
+        //  return str.replace(/[0-9]/g, '').split('').sort().join('');
+
+        //expected result: BBCOOOPew
+        //   });
+
+        //   });
+
+        //NEW REVISED CODE GOES HERE
+
+        describe('String.isAlphabetical', function () {
+            it('can determine if a string only contains alphabetical characters', function () {
+                var testUnderString = 'Street Fighter II';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = true;
+                expect(actualResult).toBe(expectedResult);
             });
+
+            it('can determine if numbers in sentence are considered part of alphabet', function () {
+                var testUnderString = '60 seconds';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
+            })
+
+            it('can determine if special characters are included in sentence', function () {
+                var testUnderString = 'KO! Chun Li Wins!';
+                var actualResult = testUnderString.isAlphabetical();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
+            })
         });
 
-        describe('String.prototype.includes', function () {
-            it('can tell if a string includes a string', function() {
-                var result = testStr.includes("o this i");
 
-                expect(result).toBe(true);
-            });
 
-            it('can tell if a string does not include a string', function() {
-                var result = testStr.includes("This is not in the string");
 
-                expect(result).toBe(false);
-            });
+
+
         });
 
-        describe('String.prototype.toCamelCase', function () {
-            it('can format a sentence into camel case', function() {
-                var result = "Hello this is a sentence.".toCamelCase();
-
-                expect(result).toBe("helloThisIsASentence.");
-            });
-        });
-
-        describe('String.prototype.toNormalCase', function () {
-            it('can format a sentence into camel case', function() {
-                var result = "Hello world".toCamelCase().toNormalCase();
-                // helloWorld => "Hello World"
-                expect(result).toBe("Hello World");
-            });
-
-            it('can format a sentence into camel case with a single letter word', function() {
-                var result = "Hello this is a sentence".toCamelCase().toNormalCase();
-                // Would think it would do this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
-                // Actually does this
-                // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
-                expect(result).toBe("Hello This Is A Sentence");
-            });
-        });
-
-        describe('String.format', function () {
-            it('can format a string properly', function() {
-                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
-
-                expect(result).toBe(testStr); // testStr = "Hello this is a random string";
-            });
-        });
-    });
 });
-
-
