@@ -1,7 +1,6 @@
-define(['bytepushers'], function(BytePushers) {
-    describe("String extension tests:", function() {
-
-        var testStr = "Hello this is a random string";
+define(['bytepushers'], function (BytePushers) {
+    describe("String extension tests:", function () {
+    var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
             it('will trim whitespace correctly', function() {
@@ -146,8 +145,16 @@ define(['bytepushers'], function(BytePushers) {
                 // helloWorld => "Hello World"
                 expect(result).toBe("Hello World");
             });
+        });
+      
+        describe('String.format', function() {
+            it('can format a string properly', function() {
+                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
-            it('can format a sentence into camel case with a single letter word', function() {
+                expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+            });
+          
+            it('can format a sentence into camel case with a single letter word', function () {
                 var result = "Hello this is a sentence".toCamelCase().toNormalCase();
                 // Would think it would do this
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is A Sentence
@@ -155,13 +162,12 @@ define(['bytepushers'], function(BytePushers) {
                 // Hello this is a sentence => helloThisIsASentence => Hello This Is ASentence
                 expect(result).toBe("Hello This Is A Sentence");
             });
-        });
-
-        describe('String.format', function () {
-            it('can format a string properly', function() {
-                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
-
-                expect(result).toBe(testStr);  //testStr = "Hello this is a random string";
+          
+            it('can format a sentence  that is expected not to be from normalCase to normalCase', function () {
+                var stringUnderTest = "Hello everyone look at the my string and its letter case.".toNormalCase();
+                var actualResult = stringUnderTest.toNormalCase();
+                var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
+                expect(expectedResult).not.toBe(actualResult);
             });
 
             it('can format a string properly with punctuation', function() {
@@ -176,12 +182,11 @@ define(['bytepushers'], function(BytePushers) {
                 var templateUnderTest = "{1} {2} random {3}.";
                 var expectedResult = "This is a random string.";
                 var actualResult = String.format(templateUnderTest, "This is", "a", "string");
-
-
+              
                 expect(actualResult).toBe(expectedResult);
             });
-
-            it('can format a string to different parts of the string', function() {
+          
+          it('can format a string to different parts of the string', function() {
                 var templateUnderTest = "Hello {1} random {2}";
                 var expectedResult = "Hello there random stranger";
                 var actualResult = String.format(templateUnderTest, "there", "stranger");
@@ -193,7 +198,33 @@ define(['bytepushers'], function(BytePushers) {
                 var templateUnderTest = "{1} {2} {3}!";
                 var expectedResult = "I like pizza!";
                 var actualResult = String.format(templateUnderTest, "I", "like", "pizza");
+              
+                expect(actualResult).toBe(expectedResult);
+            });
+        });
 
+        describe('String.isAlphanumeric', function () {
+            it('can determine if a string only contains both alphabetical and numerical characters', function () {
+                var testUnderString = 'Tekken 3';
+                var actualResult = testUnderString.isAlphanumeric();
+                var expectedResult = true;
+
+                expect(actualResult).toBe(expectedResult);
+            });
+          
+            it('can determine if a string contains special characters', function () {
+                var testUnderString = 'Jack 3 Wins!';
+                var actualResult = testUnderString.isAlphanumeric();
+                var expectedResult = false;
+              
+                expect(actualResult).toBe(expectedResult);
+            });
+
+            it('can determine if a string contains special characters', function () {
+                var testUnderString = 'P4Ul_ Ph30N1X';
+                var actualResult = testUnderString.isAlphanumeric();
+                var expectedResult = false;
+              
                 expect(actualResult).toBe(expectedResult);
             });
 
@@ -203,7 +234,6 @@ define(['bytepushers'], function(BytePushers) {
                 var actualResult = String.format(templateUnderTest);
 
                 expect(actualResult).toBe(expectedResult);
-
             });
 
             it('can format two dynamic variables into template.', function() {
@@ -212,6 +242,7 @@ define(['bytepushers'], function(BytePushers) {
                 var actualResult = String.format(templateUnderTest, "powerful", "developer");
                 expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
             });
+          
             it('can format with three dynamic variables into template.', function() {
                 var templateUnderTest = "The customer name is {1} and lives in {2} and his member number is {3}.";
                 var expectedResult = "The customer name is Rambo and lives in 80's and his member number is First Blood.";
@@ -226,6 +257,7 @@ define(['bytepushers'], function(BytePushers) {
                 expect(actualResult).toBe(expectedResult); // testStr = "I'm a powerful web developer";
 
             });
+          
             it('can format one dynamic variables into template.', function() {
                 var templateUnderTest = "To {1} or not to be.";
                 var expectedResult = "To be or not to be.";
