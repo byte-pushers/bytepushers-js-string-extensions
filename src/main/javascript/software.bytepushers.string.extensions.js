@@ -35,7 +35,7 @@
     /**
      * <p>Function that is used to determine if a string includes a certain character or string.</p>
      * @function
-     * @param <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The string we are checking if is included.
+     * @param <a href="http://www.w3schools.com/jsref/jsref_obj_string.asp">String</a> The string we are checking if it is included.
      * @return <a href="http://www.w3schools.com/jsref/jsref_obj_boolean.asp">Boolean</a> True of the string is included, otherwise false.
      * @author <a href="mailto:pouncilt.developer@gmail.com">Tont&eacute; Pouncil</a>
      */
@@ -71,27 +71,22 @@
     if (!String.prototype.isAlphabetical) {
 
         String.prototype.isAlphabetical = function () {
-            //return this.replace(/[0-9]/g, '').split('').sort().join('');
+            var i, character;
             var isAlphabetical = false;
             var trueAlphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-            //var i;
-
-            // Note: the key word this represents the string that calls this isAlphabetical() method.
-            // TODO: split the string into array and assign to a variable.
-            var charactersArray = this.replace(/ /g,'').split('');
-            // TODO: loop through the newly created array.
-            for (var i=0; i < charactersArray.length; i++){
-                // TODO: get each element out of newly created array
-                var character = charactersArray[i];
-                // TODO: determine if the true alphabet includes element.
+            // split the string into array and assign to a variable.
+            var charactersArray = this.split('');
+            // loop through the newly created array.
+            for (i=0; i < charactersArray.length; i = i + 1){
+                // get each element out of newly created array
+                character = charactersArray[i];
+                // determine if the true alphabet includes element.
                 //if (this.includes(trueAlphabet[i])){
-                if (trueAlphabet.includes(character)) { //TODO
-
-                    console.log('Character "' + character + '" is an alphabet');
+                if (trueAlphabet.includes(character)) {
+                    // console.log('Character "' + character + '" is an alphabet');
                     isAlphabetical = true;
                 } else if (this !== trueAlphabet) {
-
-                    console.log('Character "' + character + '" is not alphabet');
+                    // console.log('Character "' + character + '" is not alphabet');
                     isAlphabetical = false;
                     break;
                 }
@@ -109,29 +104,25 @@
      */
 
     if (!String.prototype.isAlphanumeric) {
-
         String.prototype.isAlphanumeric = function () {
-            //return this.replace(/[0-9]/g, '').split('').sort().join('');
+            var i;
             var isAlphanumeric = false;
             var trueAlphanumeric = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split('');
-            //var i;
-
-            // Note: the key word this represents the string that calls this isAlphabetical() method.
-            // TODO: split the string into array and assign to a variable.
-            var charactersArray = this.replace(/ /g,'').split('');
-            // TODO: loop through the newly created array.
-            for (var i=0; i < charactersArray.length; i++){
-                // TODO: get each element out of newly created array
+            // split the string into array and assign to a variable.
+            var charactersArray = this.split('');
+            // loop through the newly created array.
+            for (i=0; i < charactersArray.length; i++){
+                // get each element out of newly created array
                 var character = charactersArray[i];
-                // TODO: determine if the true alphabet includes element.
-                //if (this.includes(trueAlphabet[i])){
-                if (trueAlphanumeric.includes(character)) { //TODO
-
-                    console.log('Character "' + character + '" is alphanumeric');
+                // determine if the true alphabet includes element.
+                // console.log("trueAlphanumeric:" + trueAlphanumeric);
+                // console.log("character:" + character);
+                if (trueAlphanumeric.includes(character)) {
+                    // console.log('Character "' + character + '" is alphanumeric');
                     isAlphanumeric = true;
                 } else if (this !== trueAlphanumeric) {
 
-                    console.log('Character "' + character + '" is not alphanumeric');
+                    // console.log('Character "' + character + '" is not alphanumeric');
                     isAlphanumeric = false;
                     break;
                 }
@@ -151,9 +142,6 @@
             return str.toUpperCase();
         });
     };
-
-
-
 
     /**
      * <p>Convenience function that will format a string with dynamic variables.</p>

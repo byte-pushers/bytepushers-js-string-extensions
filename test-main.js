@@ -11,13 +11,15 @@ require.config({
   baseUrl: '/base',
 
   paths: {
-      'bytepushers': 'src/main/javascript/software.bytepushers.string.extensions'
+      'bytepushers': 'src/main/javascript/software.bytepushers.string.extensions',
+      'ArrayPolyfill': 'src/test/javascript/support/array.polyfill'
   },
 
   shim: {
       bytepushers: {
           exports: 'BytePushers'
-      }
+      },
+      ArrayPolyfill: {}
   },
 
   deps: allTestFiles,

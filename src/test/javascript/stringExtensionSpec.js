@@ -1,4 +1,4 @@
-define(['bytepushers'], function (BytePushers) {
+define(['bytepushers', 'ArrayPolyfill'], function (BytePushers, ArrayPolyfill) {
     describe("String extension tests:", function () {
         var testStr = "Hello this is a random string";
 
@@ -209,7 +209,7 @@ define(['bytepushers'], function (BytePushers) {
             it('can determine if a string only contains both alphabetical and numerical characters', function () {
                 var testUnderString = 'Tekken 3';
                 var actualResult = testUnderString.isAlphanumeric();
-                var expectedResult = true;
+                var expectedResult = false;
 
                 expect(actualResult).toBe(expectedResult);
             });
