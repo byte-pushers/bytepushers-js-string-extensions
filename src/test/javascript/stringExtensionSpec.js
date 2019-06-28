@@ -1,7 +1,6 @@
 define(['bytepushers'], function (BytePushers) {
     describe("String extension tests:", function () {
-
-        var testStr = "Hello this is a random string";
+    var testStr = "Hello this is a random string";
 
         describe('String.prototype.trim', function () {
             it('will trim whitespace correctly', function () {
@@ -74,7 +73,14 @@ define(['bytepushers'], function (BytePushers) {
             });
 
         });
+      
+        describe('String.format', function() {
+            it('can format a string properly', function() {
+                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
 
+                expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+            });
+          
             it('can format a sentence into camel case with a single letter word', function () {
                 var result = "Hello this is a sentence".toCamelCase().toNormalCase();
                 // Would think it would do this
@@ -89,7 +95,6 @@ define(['bytepushers'], function (BytePushers) {
                 var actualResult = stringUnderTest.toNormalCase();
                 var expectedResult = "Hello everyone look at the my string and its letter case".toCamelCase();
                 expect(expectedResult).not.toBe(actualResult);
-
             });
 
             it('can format a sentence from camelCase with a single letter word', function () {
@@ -97,14 +102,30 @@ define(['bytepushers'], function (BytePushers) {
                 var actualResult = stringUnderTest.toNormalCase();
                 var expectedResult = "Hello Captain Falcon";
                 expect(actualResult).toBe(expectedResult);
+            });
+        });
 
+        describe('String.isAlphanumeric', function () {
+            it('can determine if a string only contains both alphabetical and numerical characters', function () {
+                var testUnderString = 'Tekken 3';
+                var actualResult = testUnderString.isAlphanumeric();
+                var expectedResult = true;
+
+                expect(actualResult).toBe(expectedResult);
             });
 
-        describe('String.format', function() {
-            it('can format a string properly', function() {
-                var result = String.format("Hello {1} is {2} random {3}", "this", "a", "string");
+            it('can determine if a string contains special characters', function () {
+                var testUnderString = 'Jack 3 Wins!';
+                var actualResult = testUnderString.isAlphanumeric();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
+            });
 
-                expect(result).toBe(testStr); // testStr = "Hello this is a random string";
+            it('can determine if a string contains special characters', function () {
+                var testUnderString = 'P4Ul_ Ph30N1X';
+                var actualResult = testUnderString.isAlphanumeric();
+                var expectedResult = false;
+                expect(actualResult).toBe(expectedResult);
             });
         });
     });
