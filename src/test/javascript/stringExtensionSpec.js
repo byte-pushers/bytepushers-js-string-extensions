@@ -1,11 +1,6 @@
 define(['bytepushers'], function (BytePushers) {
     describe("String extension tests:", function () {
-
         var testStr = "Hello this is one random string";
-
-
-
-
 
         describe('String.isAlphanumeric', function () {
             it('can determine if a string only contains both alphabetical and numerical characters', function () {
@@ -29,10 +24,5 @@ define(['bytepushers'], function (BytePushers) {
                 expect(actualResult).toBe(expectedResult);
             });
         });
-
-
-
-
-        });
-
+    });
 });
